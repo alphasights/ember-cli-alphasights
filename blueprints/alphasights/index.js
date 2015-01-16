@@ -1,6 +1,5 @@
 var fs = require('fs');
 var path = require('path');
-var glob = require('glob');
 
 module.exports = {
   normalizeEntityName: function() {
@@ -10,11 +9,11 @@ module.exports = {
   },
 
   afterInstall: function() {
-    glob('bin/*', function(er, files) {
-      files.forEach(function(el) {
-        console.log(el);
-        fs.chmodSync(el, '0755')
-      })
+    // for some reason, binaries lose permissions
+    var bin_path = path.join(this.project.root, 'bin');
+
+    fs.readdirSync(bin_path).forEach(function(file) {
+      fs.chmodSync(path.join(bin_path, file), '0755')
     });
   }
 }
