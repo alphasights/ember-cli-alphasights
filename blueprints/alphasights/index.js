@@ -15,5 +15,10 @@ module.exports = {
     fs.readdirSync(bin_path).forEach(function(file) {
       fs.chmodSync(path.join(bin_path, file), '0755')
     });
+
+    return this.addPackageToProject({
+      name: "ember-cli-divshot",
+      target: "git+https://git@github.com/matteodepalo/ember-cli-divshot.git"
+    })
   }
 }
