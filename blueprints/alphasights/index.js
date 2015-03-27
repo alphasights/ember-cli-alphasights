@@ -15,5 +15,9 @@ module.exports = {
     fs.readdirSync(bin_path).forEach(function(file) {
       fs.chmodSync(path.join(bin_path, file), '0755')
     });
+
+    return this.addPackagesToProject([
+      { name: 'bower', target: '1.3.12' },
+    });
   }
 }
