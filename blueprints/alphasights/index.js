@@ -18,6 +18,6 @@ module.exports = {
 
     return this.addPackagesToProject([
       { name: 'bower', target: '1.3.12' },
-    });
+    ]);
   }
 }
