@@ -5,9 +5,12 @@ test:
 dependencies:
   override:
     - ./bin/setup
+  cache_directories:
+    - "bower_components"
+    - "~/.rvm/gems/"
 
 deployment:
   staging:
     branch: master
     commands:
-      - "ember divshot push staging --token $DIVSHOT_TOKEN --org AlphaSights"
+      - "node_modules/.bin/ember divshot push staging --token $DIVSHOT_TOKEN --org AlphaSights"
