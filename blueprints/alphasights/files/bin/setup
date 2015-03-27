@@ -3,5 +3,5 @@
 set -e
 
 npm install
-node_modules/.bin/bower install
+bower install
 bundle install
